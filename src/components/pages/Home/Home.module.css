@@ -1,11 +1,12 @@
 .title {
     color: #fff;
     font-size: 50px;
-    animation: 3s 1 alternate opacity;
+    animation: 2s 1 alternate opacity;
 }
 .subTitle {
 color: #fff;
-animation: 4s 1 alternate opacity;
+animation: 3s 1 alternate opacity;
+font-size: 25px;
 }
 
 
