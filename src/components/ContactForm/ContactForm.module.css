@@ -2,7 +2,7 @@
     list-style: none;
     margin-bottom: 5px;
     word-break: break-word;
-    border: 1px solid rgb(97, 131, 3);
+    border: 1px solid rgb(238, 55, 205);
     padding: 5px;
     border-radius: 5px;
 }
@@ -10,7 +10,7 @@
 .delete {
     margin: 6px 0 0 140px;
     border-radius: 5px;
-    border: 1px solid rgb(97, 131, 3);
+    border: 1px solid rgb(230, 74, 250);
     transition: box-shadow 250ms, color 250ms;
 
 }
@@ -24,10 +24,41 @@
 .name {
     display: inline-block;
     font-weight: 500;
-    margin: 0;
+    margin:0 5px 0 0;
+
 }
 
 .number {
     display: inline-block;
     margin: 0;
+}
+
+.delete {
+    background: linear-gradient(to bottom right, #eb14e8, #f6057a);
+    border: 0;
+    border-radius: 12px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    font-weight: 500;
+    
+    outline: transparent;
+    
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.delete:not([disabled]):focus {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.delete:not([disabled]):hover {
+    box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }

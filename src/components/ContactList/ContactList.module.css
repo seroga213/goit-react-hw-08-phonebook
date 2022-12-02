@@ -1,3 +1,10 @@
 .list {
     padding: 0;
+    color: aliceblue;
+        width: 200px;
+        margin: 0 auto;
+}
+
+li {
+    list-style: none;
 }

@@ -36,3 +36,7 @@ img {
   display: block;
   text-decoration: none;
 }
+
+a {
+  text-decoration: none;
+}

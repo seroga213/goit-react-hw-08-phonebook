@@ -3,6 +3,7 @@ import AuthNav from 'components/AuthNav/AuthNav';
 import UserMenu from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 import s from '../Header/Header.module.css';
+import videoLayout from '../../img/preview.mp4';
 
 export const Header = () => {
   const isloggedIn = useSelector(state => state.userSlice.isloggedIn);
@@ -17,6 +18,15 @@ export const Header = () => {
       </header>
       <main className={s.main}>
         <Outlet />
+        <div id="video-bg">
+          <video
+            className={s.video}
+            src={videoLayout}
+            autoPlay
+            muted
+            loop
+          ></video>
+        </div>
       </main>
     </>
   );
