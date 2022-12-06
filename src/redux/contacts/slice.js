@@ -7,18 +7,18 @@ import {
 } from './operations';
 
 
-const initialState = {
-    error: '',
-    isLoading: false,
-    isDeleting: false,
-    isAdd: false,
-    contacts: {
-      items: [],
-      filter: {
-        value: '',
-      },
-    },
-  };
+// const initialState = {
+//     error: '',
+//     isLoading: false,
+//     isDeleting: false,
+//     isAdd: false,
+//     contacts: {
+//       items: [],
+//       filter: {
+//         value: '',
+//       },
+//     },
+//   };
   const setError = (state, action) => {
     state.isLoading = false;
     state.error = action.payload;
@@ -26,7 +26,18 @@ const initialState = {
 
   export const contactsSlice = createSlice({
     name: 'contacts',
-    initialState,
+    initialState: {
+      error: '',
+      isLoading: false,
+      isDeleting: false,
+      isAdd: false,
+      contacts: {
+        items: [],
+        filter: {
+          value: '',
+        },
+      },
+    },
     reducers: {
       setFilter: (state, action) => {
         state.contacts.filter.value = action.payload;
@@ -56,15 +67,7 @@ const initialState = {
         state.contacts.items = action.payload;
       },
       [fetchContacts.rejected]: setError,
-  
-      [deleteContacts.pending]: state => {
-        state.isDeleting = true;
-      },
-      [deleteContacts.fulfilled]: state => {
-        state.isDeleting = false;
-      },
-      [deleteContacts.rejected]: setError,
-  
+      
       [addContacts.pending]: state => {
         state.isLoading = true;
         state.isAdd = true;
@@ -74,6 +77,14 @@ const initialState = {
         state.isAdd = false;
       },
       [addContacts.rejected]: setError,
+      [deleteContacts.pending]: state => {
+        state.isDeleting = true;
+      },
+      [deleteContacts.fulfilled]: state => {
+        state.isDeleting = false;
+      },
+      [deleteContacts.rejected]: setError,
+  
     },
   });
   
