@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContacts } from '../../store/reducer';
+import { addContacts } from '../../redux/reducer';
 import s from './Form.module.css';
 
 let inputNameId = nanoid();

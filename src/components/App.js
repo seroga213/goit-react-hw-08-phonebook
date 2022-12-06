@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { refreshCurrentUser } from 'store/userReducer';
+import { refreshCurrentUser } from 'redux/userReducer';
 import { PrivateRoutes } from 'components/UserMenu/PrivateRoutes';
 import { Header } from './Header/Header';
 import { Home } from './pages/Home/Home';

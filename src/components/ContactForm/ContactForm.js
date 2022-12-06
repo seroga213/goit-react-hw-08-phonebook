@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContacts } from '../../store/reducer';
+import { deleteContacts } from '../../redux/reducer';
 import { ThreeDots } from 'react-loader-spinner';
 import s from './ContactForm.module.css';
 
@@ -10,8 +10,8 @@ export const ContactItem = ({ item }) => {
   const isDeleting = useSelector(state => state.contactsSlice.isDeleting);
   return (
     <li className={s.item}>
-      <p className={s.name}>{item.name}</p> :{' '}
-      <p className={s.number}>{item.phone}</p>
+      <p className={s.name}>{item.name}:</p>
+      <p className={s.number}>{item.number}</p>
       <button
         type="button"
         className={s.delete}

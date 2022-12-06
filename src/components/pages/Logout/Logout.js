@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { logoutUser } from 'store/userReducer';
+import { logoutUser } from 'redux/userReducer';
 import s from '../Logout/Logout.module.css';
 
 export const Logout = () => {
