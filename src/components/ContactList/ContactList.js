@@ -1,7 +1,7 @@
 import { ContactItem } from 'components/ContactForm/ContactForm';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from '../../redux/reducer';
+import { fetchContacts } from '../../redux/contacts/operations';
 import { nanoid } from 'nanoid';
 import { Oval } from 'react-loader-spinner';
 import s from './ContactList.module.css';

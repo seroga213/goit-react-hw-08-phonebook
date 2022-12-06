@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../../redux/userReducer';
+import { loginUser } from '../../../redux/auth/operations';
 import { nanoid } from 'nanoid';
 import s from '../Login/Login.module.css';
 

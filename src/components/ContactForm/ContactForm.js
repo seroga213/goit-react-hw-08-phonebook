@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContacts } from '../../redux/reducer';
+import { deleteContacts } from '../../redux/contacts/operations';
 import { ThreeDots } from 'react-loader-spinner';
 import s from './ContactForm.module.css';
 
