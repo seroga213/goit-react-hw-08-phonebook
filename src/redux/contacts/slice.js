@@ -24,7 +24,7 @@ import {
     state.error = action.payload;
   };
 
-  export const contactsSlice = createSlice({
+  const contactsSlice = createSlice({
     name: 'contacts',
     initialState: {
       error: '',
@@ -75,6 +75,7 @@ import {
       [addContacts.fulfilled]: state => {
         state.isLoading = false;
         state.isAdd = false;
+        
       },
       [addContacts.rejected]: setError,
       [deleteContacts.pending]: state => {
