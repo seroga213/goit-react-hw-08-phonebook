@@ -14,19 +14,8 @@ export const fetchContacts = createAsyncThunk(
       }
     }
   );
-  
-  export const deleteContacts = createAsyncThunk(
-    'contacts/deleteContacts',
-    async (id, { rejectWithValue, dispatch }) => {
-      try {
-        await axios.delete(`/contacts/${id}`);
-        // dispatch(removeContact(id));
-      } catch (error) {
-        return rejectWithValue(error.message);
-      }
-    }
-  );
-  
+
+
   export const addContacts = createAsyncThunk(
     'contacts/addContacts',
     async (credentials, { rejectWithValue, dispatch }) => {
@@ -44,4 +33,20 @@ export const fetchContacts = createAsyncThunk(
       }
     }
   );
+
+  export const deleteContacts = createAsyncThunk(
+    'contacts/deleteContacts',
+    async (id, { rejectWithValue, dispatch }) => {
+      try {
+        await axios.delete(`/contacts/${id}`);
+        // dispatch(removeContact(id));
+      } catch (error) {
+        return rejectWithValue(error.message);
+      }
+    }
+  );
+  
+  
+    
+  
   

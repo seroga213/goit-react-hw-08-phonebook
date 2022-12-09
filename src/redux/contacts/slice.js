@@ -7,18 +7,19 @@ import {
 } from './operations';
 
 
-// const initialState = {
-//     error: '',
-//     isLoading: false,
-//     isDeleting: false,
-//     isAdd: false,
-//     contacts: {
-//       items: [],
-//       filter: {
-//         value: '',
-//       },
-//     },
-//   };
+const initialState = {
+    error: '',
+    isLoading: false,
+    isDeleting: false,
+    isAdd: false,
+    contacts: {
+      items: [],
+      filter: {
+        value: '',
+      },
+    },
+  };
+  
   const setError = (state, action) => {
     state.isLoading = false;
     state.error = action.payload;
@@ -26,25 +27,14 @@ import {
 
   const contactsSlice = createSlice({
     name: 'contacts',
-    initialState: {
-      error: '',
-      isLoading: false,
-      isDeleting: false,
-      isAdd: false,
-      contacts: {
-        items: [],
-        filter: {
-          value: '',
-        },
-      },
-    },
+    initialState,
     reducers: {
-      setFilter: (state, action) => {
-        state.contacts.filter.value = action.payload;
-      },
-      setContact: (state, action) => {
-        state.contacts.items.push(action.payload);
-      },
+      // setFilter: (state, action) => {
+      //   state.contacts.filter.value = action.payload;
+      // },
+      // setContact: (state, action) => {
+      //   state.contacts.items.push(action.payload);
+      // },
       removeContact: (state, action) => {
         let indexId = state.contacts.items.findIndex(
           el => el.id === action.payload
@@ -72,17 +62,21 @@ import {
         state.isLoading = true;
         state.isAdd = true;
       },
-      [addContacts.fulfilled]: state => {
+      [addContacts.fulfilled](state, action) {
         state.isLoading = false;
         state.isAdd = false;
-        
+        state.items.push(action.payload);
       },
       [addContacts.rejected]: setError,
       [deleteContacts.pending]: state => {
         state.isDeleting = true;
       },
-      [deleteContacts.fulfilled]: state => {
+      [deleteContacts.fulfilled](state, action) {
         state.isDeleting = false;
+        const indexId = state.items.findIndex(
+          contact => contact.id === action.payload
+        );
+        state.items.splice(indexId, 1);
       },
       [deleteContacts.rejected]: setError,
   
