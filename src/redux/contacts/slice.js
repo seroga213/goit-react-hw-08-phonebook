@@ -62,14 +62,14 @@ const initialState = {
         state.isLoading = true;
         state.isAdd = true;
       },
-      [addContacts.fulfilled](state, action) {
+      [addContacts.fulfilled]: state => {
         state.isLoading = false;
         state.isAdd = false;
         setContact();
       },
       [addContacts.rejected]: setError,
       [deleteContacts.pending]: state => {
-        state.isDeleting = true;
+        state.isLoading = true;
       },
       [deleteContacts.fulfilled]: state => {
         state.isDeleting = false;
