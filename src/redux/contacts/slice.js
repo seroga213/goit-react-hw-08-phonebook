@@ -29,12 +29,12 @@ const initialState = {
     name: 'contacts',
     initialState,
     reducers: {
-      // setFilter: (state, action) => {
-      //   state.contacts.filter.value = action.payload;
-      // },
-      // setContact: (state, action) => {
-      //   state.contacts.items.push(action.payload);
-      // },
+      setFilter: (state, action) => {
+        state.contacts.filter.value = action.payload;
+      },
+      setContact: (state, action) => {
+        state.contacts.items.push(action.payload);
+      },
       removeContact: (state, action) => {
         let indexId = state.contacts.items.findIndex(
           el => el.id === action.payload
@@ -65,18 +65,15 @@ const initialState = {
       [addContacts.fulfilled](state, action) {
         state.isLoading = false;
         state.isAdd = false;
-        state.items.push(action.payload);
+        setContact();
       },
       [addContacts.rejected]: setError,
       [deleteContacts.pending]: state => {
         state.isDeleting = true;
       },
-      [deleteContacts.fulfilled](state, action) {
+      [deleteContacts.fulfilled]: state => {
         state.isDeleting = false;
-        const indexId = state.items.findIndex(
-          contact => contact.id === action.payload
-        );
-        state.items.splice(indexId, 1);
+        removeContact();
       },
       [deleteContacts.rejected]: setError,
   
